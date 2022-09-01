@@ -65,8 +65,8 @@ BEGIN
 							)
 						,u.[Password]
 
-						FROM [dbo].[Users] as u
-						WHERE Email = @Email
+					FROM [dbo].[Users] as u
+					WHERE Email = @Email
 
 				END
 
