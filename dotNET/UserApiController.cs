@@ -34,7 +34,6 @@ namespace Sabio.Web.Api.Controllers
             _authService = authService;
             _options = options;
             _emailService = emailService;
-
         }
        
         [HttpPost]
@@ -42,7 +41,7 @@ namespace Sabio.Web.Api.Controllers
         public ActionResult<ItemResponse<int>> Create(UserAddRequest model)
         {
             ObjectResult result = null;
-
+			
             try
             {
                 string token = Guid.NewGuid().ToString();
@@ -114,8 +113,6 @@ namespace Sabio.Web.Api.Controllers
             try
             {
                 IUserAuthData user = _authService.GetCurrentUser();
-                //var extarData= _userService.GetProfile();
-                //make a new model that has a property of profile and authdata or modify model
                 ItemResponse<IUserAuthData> response = new ItemResponse<IUserAuthData>();
                 response.Item = user;
                 return Ok200(response);
@@ -124,9 +121,7 @@ namespace Sabio.Web.Api.Controllers
             {
                 base.Logger.LogError(ex.Message);
                 return StatusCode(500, new ErrorResponse(ex.Message));
-
             }
-
         }
 
         [HttpGet("logout")]

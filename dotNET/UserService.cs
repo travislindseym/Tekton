@@ -34,7 +34,6 @@ namespace Sabio.Services
                 await _authenticationService.LogInAsync(response);
                 isSuccessful = true;
             }
-
             return isSuccessful;
         }
         private IUserAuthData Get(string email, string password)
@@ -55,15 +54,13 @@ namespace Sabio.Services
                 List<Role> roles = reader.DeserializeObject<List<Role>>(startingIndex++);
                 user.Roles = roles.Select(x => x.Name).ToList();
                 passwordFromDb = reader.GetSafeString(startingIndex++);
-                user.TenantId = "flow-beta-v0.0.1"; // hard code for now
-
+                user.TenantId = "flow-beta-v0.0.1";
             }
 );
             bool isValidCredentials = BCrypt.BCryptHelper.CheckPassword(password, passwordFromDb);
 
             if (isValidCredentials)
             {
-                
                 return user;
             }
             return null;
@@ -83,15 +80,12 @@ namespace Sabio.Services
 
                     SqlParameter idOut = new SqlParameter("@Id", SqlDbType.Int);
                     idOut.Direction = ParameterDirection.Output;
-
                     col.Add(idOut);
-
                 }, returnParameters: delegate (SqlParameterCollection returnCollection)
                 {
                     object oId = returnCollection["@Id"].Value;
                     int.TryParse(oId.ToString(), out id);
                 });
-
             return id;
         }
         public void InsertToken(int userId, int tokenType, string token)
@@ -129,12 +123,11 @@ namespace Sabio.Services
                 ,
                 Roles = allRoles
                 ,
-                TenantId = "Acme Corp UId"
+                TenantId = "Test"
             };
 
-            Claim fullName = new Claim("CustomClaim", "Sabio Bootcamp");
+            Claim fullName = new Claim("CustomClaim", "LogInTest");
             await _authenticationService.LogInAsync(response, new Claim[] { fullName });
-
             return isSuccessful;
         }
     }
