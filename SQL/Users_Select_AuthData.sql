@@ -40,36 +40,36 @@ BEGIN
 
 			DECLARE @isConfirmed bit
 			SELECT @isConfirmed = (
-						SELECT u.IsConfirmed
-						FROM dbo.Users as u
-						WHERE @Email = u.Email)
+				SELECT u.IsConfirmed
+				FROM dbo.Users as u
+				WHERE @Email = u.Email)
 
 			DECLARE @status int
 			SELECT @status = (
-						SELECT u.UserStatusId
-						FROM dbo.Users as u
-						WHERE @Email = u.Email)
+				SELECT u.UserStatusId
+				FROM dbo.Users as u
+				WHERE @Email = u.Email)
 
 			IF @isConfirmed = 1 AND @status = 1
 
-			BEGIN
+				BEGIN
 
 					SELECT 
 						u.[Id]
 						,Roles = (
-								SELECT r.Name
-								FROM dbo.Roles AS r INNER JOIN dbo.UserRoles AS ur
-										ON r.Id = ur.RoleId
-								WHERE u.Id = ur.UserId
-								FOR JSON AUTO
-						)
+							SELECT r.Name
+							FROM dbo.Roles AS r INNER JOIN dbo.UserRoles AS ur
+								ON r.Id = ur.RoleId
+							WHERE u.Id = ur.UserId
+							FOR JSON AUTO
+							)
 						,u.[Password]
 
-					FROM [dbo].[Users] as u
-					WHERE Email = @Email
+						FROM [dbo].[Users] as u
+						WHERE Email = @Email
 
-			END
+				END
 
 			ELSE
-					THROW 50000, 'User is not confirmed/active', 1
+				THROW 50000, 'User is not confirmed/active', 1
 END
