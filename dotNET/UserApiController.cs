@@ -3,17 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
-using Sabio.Models;
-using Sabio.Models.Requests.Users;
-using Sabio.Services;
-using Sabio.Web.Controllers;
-using Sabio.Web.Core;
-using Sabio.Web.Models.Responses;
+using Models;
+using Models.Requests.Users;
+using Services;
+using Web.Controllers;
+using Web.Core;
+using Web.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Sabio.Web.Api.Controllers
+namespace Web.Api.Controllers
 {
     [Route("api/users")]
     [ApiController]

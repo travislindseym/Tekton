@@ -1,9 +1,9 @@
-﻿using Sabio.Data;
-using Sabio.Data.Providers;
-using Sabio.Models;
-using Sabio.Models.Domain;
-using Sabio.Models.Domain.Users;
-using Sabio.Models.Requests.Users;
+﻿using Data;
+using Data.Providers;
+using Models;
+using Models.Domain;
+using Models.Domain.Users;
+using Models.Requests.Users;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Sabio.Services
+namespace Services
 {
     public class UserService : IUserService
     {
