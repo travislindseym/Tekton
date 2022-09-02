@@ -32,11 +32,11 @@ as
 */ --- END TEST CODE ---
 
 BEGIN
+
 			DECLARE @DateMod datetime2 = GETUTCDATE()
 			DECLARE @userId int = (
 						SELECT ut.UserId
 						FROM dbo.UserTokens as ut WHERE @Token = ut.Token)
-
 
 			UPDATE [dbo].[Users]
 				SET [IsConfirmed] = 1

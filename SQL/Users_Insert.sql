@@ -29,7 +29,6 @@ ALTER   proc [dbo].[Users_Insert]
 			,@RoleId int
 			,@Id int OUTPUT
 
-
 as
 
 /* --- TEST CODE ---
@@ -79,7 +78,5 @@ DECLARE @RefTypeId int
 			VALUES
 				(@Id
 				,@RoleId)
-
-		
 
 END
