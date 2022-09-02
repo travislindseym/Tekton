@@ -46,12 +46,12 @@ BEGIN
 				,[UserId]
 				,[TokenType])
 
-			VALUES
-				(@Token
-				,@UserId
-				,@TokenType)
+				VALUES
+					(@Token
+					,@UserId
+					,@TokenType)
 
-			SET @Token = SCOPE_IDENTITY()
+				SET @Token = SCOPE_IDENTITY()
 
 
 

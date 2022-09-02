@@ -47,8 +47,8 @@ BEGIN
 					,[DateModified]
 					,[TotalCount] = COUNT(1) OVER()
 
-			FROM [dbo].[Users]
-			ORDER BY Id
+				FROM [dbo].[Users]
+				ORDER BY Id
 
 			OFFSET @Offset Rows
 			Fetch Next @PageSize Rows ONLY
