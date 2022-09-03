@@ -21,7 +21,7 @@ namespace Models.Requests.Users
         [Compare("Password")]
         public string PasswordConfirm { get; set; }
 
-		[Required]
+	[Required]
         public string NewRefType { get; set; }
 
     }
