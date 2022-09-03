@@ -23,6 +23,5 @@ namespace Models.Requests.Users
 
 	[Required]
         public string NewRefType { get; set; }
-
     }
 }
