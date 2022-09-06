@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AccountLayout from "./AccountLayout";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  Button,
-  Row,
-  Col,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Dropdown,
-} from "react-bootstrap";
+import { Button, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import userService from "../../services/userService";
 import registerSchema from "../../schemas/registerSchema";
