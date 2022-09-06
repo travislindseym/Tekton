@@ -5,7 +5,7 @@ import { Button, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown 
 import { Link, useNavigate } from "react-router-dom";
 import userService from "../../services/userService";
 import registerSchema from "../../schemas/registerSchema";
-import * as siteReferenceService from "../../services/siteReferenceService";
+import siteReferenceService from "../../services/siteReferenceService";
 import Swal from "sweetalert2";
 import TermsOfServiceContent from "../landing/TermsOfServiceContent";
 import toastr from "toastr";
