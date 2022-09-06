@@ -4,10 +4,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button, Row, Col, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import userService from "../../services/userService";
-import registerSchema from "../../schemas/registerSchema";
 import siteReferenceService from "../../services/siteReferenceService";
-import Swal from "sweetalert2";
 import TermsOfServiceContent from "../landing/TermsOfServiceContent";
+import Swal from "sweetalert2";
+import registerSchema from "../../schemas/registerSchema";
 import toastr from "toastr";
 import "./Formik.css";
 
