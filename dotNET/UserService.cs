@@ -23,6 +23,7 @@ namespace Services
             _authenticationService = authSerice;
             _dataProvider = dataProvider;
         }
+        
         public async Task<bool> LogInAsync(string email, string password)
         {
             bool isSuccessful = false;
@@ -36,6 +37,7 @@ namespace Services
             }
             return isSuccessful;
         }
+        
         private IUserAuthData Get(string email, string password)
         {
             string passwordFromDb = "";
@@ -65,6 +67,7 @@ namespace Services
             }
             return null;
         }
+        
         public int Add(UserAddRequest model)
         {
             int id = 0;
@@ -88,6 +91,7 @@ namespace Services
                 });
             return id;
         }
+        
         public void InsertToken(int userId, int tokenType, string token)
         {
             string procName = "[dbo].[UserTokens_Insert]";
@@ -99,6 +103,7 @@ namespace Services
                         col.AddWithValue("@TokenType", tokenType);
                     });
         }
+        
         public void ConfirmUser(UserConfirmRequest model)
         {
             string procName = "[dbo].[Users_Confirm]";
@@ -108,6 +113,7 @@ namespace Services
                     col.AddWithValue("@Token", model.Token);
                 });
         }
+        
         public async Task<bool> LogInTest(string email, string password, int id, string[] roles = null)
         {
             bool isSuccessful = false;
@@ -118,12 +124,9 @@ namespace Services
             IUserAuthData response = new UserBase
             {
                 Id = id
-                ,
-                Name = email
-                ,
-                Roles = allRoles
-                ,
-                TenantId = "Test"
+                ,Name = email
+                ,Roles = allRoles
+                ,TenantId = "Test"
             };
 
             Claim fullName = new Claim("CustomClaim", "LogInTest");
